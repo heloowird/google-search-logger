@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Search Logger",
+  "version": "1.0",
+  "description": "Logs Google search queries",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.google.com.hk/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.google.com.hk/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
+
